@@ -6,6 +6,7 @@ from flask import Flask, render_template, url_for  # noqa: F401
 
 app = Flask(__name__)
 
+
 posts = [
     {
         "author": "Rob Martin",
