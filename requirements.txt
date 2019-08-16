@@ -5,6 +5,7 @@ Click==7.0
 entrypoints==0.3
 flake8==3.7.8
 Flask==1.1.1
+Flask-WTF==0.14.2
 itsdangerous==1.1.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
@@ -13,3 +14,4 @@ pycodestyle==2.5.0
 pyflakes==2.1.1
 toml==0.10.0
 Werkzeug==0.15.4
+WTForms==2.2.1
