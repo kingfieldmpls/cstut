@@ -1,21 +1,21 @@
 # PowersHell >> $env:FLASK_APP = "flaskblog.py"
 #            >> $env:FLASK_ENV = "development"
-# https://youtu.be/QnDWIZuWYW0?t=622
+# YouTube link: https://youtu.be/UIJKdCIEXUQ?t=628
 
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for  # noqa: F401
 
 app = Flask(__name__)
 
 posts = [
     {
         "author": "Rob Martin",
-        "tite": "Blog Post 1",
+        "title": "Blog Post 1",
         "content": "First post content",
         "date_posted": "August 15, 2019",
     },
     {
         "author": "Rod Martin",
-        "tite": "Blog Post 2",
+        "title": "Blog Post 2",
         "content": "Second post content",
         "date_posted": "August 15, 2019",
     },
@@ -30,7 +30,7 @@ def home():
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about.html", title="About")
 
 
 if __name__ == "__main__":
