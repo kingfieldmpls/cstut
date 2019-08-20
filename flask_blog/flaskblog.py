@@ -1,11 +1,13 @@
 # PowersHell >> $env:FLASK_APP = "flaskblog.py"
 #            >> $env:FLASK_ENV = "development"
-# YouTube link: https://youtu.be/UIJKdCIEXUQ?t=628
+# YouTube link: https://youtu.be/UIJKdCIEXUQ?t=704
 
 from flask import Flask, render_template, url_for  # noqa: F401
 
 app = Flask(__name__)
 
+
+app.config["SECRET_KEY"] = "922903b5c9704ab45341228764219fbb"
 
 posts = [
     {
