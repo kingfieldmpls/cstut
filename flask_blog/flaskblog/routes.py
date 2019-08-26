@@ -1,15 +1,8 @@
-# PowersHell >> $env:FLASK_APP = "flaskblog.py"
-#            >> $env:FLASK_ENV = "development"
-# YouTube link: https://youtu.be/UIJKdCIEXUQ?t=704
+from flask import render_template, url_for, flash, redirect
 
-
-from flask import Flask, render_template, url_for, flash, redirect  # noqa: F401
-from forms import RegistrationForm, LoginForm
-
-app = Flask(__name__)
-
-
-app.config["SECRET_KEY"] = "922903b5c9704ab45341228764219fbb"
+from flaskblog import app
+from flaskblog.forms import RegistrationForm, LoginForm
+from flaskblog.models import User, Post  # noqa: F401
 
 posts = [
     {
@@ -47,17 +40,13 @@ def register():
     return render_template("register.html", title="Register", form=form)
 
 
-@app.route("/login", methods=['GET', 'POST'])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        if form.email.data == 'admin@blog.com' and form.password.data == 'password':
-            flash('You have been logged in!', 'success')
-            return redirect(url_for('home'))
+        if form.email.data == "admin@blog.com" and form.password.data == "password":
+            flash("You have been logged in!", "success")
+            return redirect(url_for("home"))
         else:
-            flash('Login Unsuccessful. Please check username and password', 'danger')
-    return render_template('login.html', title='Login', form=form)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+            flash("Login Unsuccessful. Please check username and password", "danger")
+    return render_template("login.html", title="Login", form=form)
