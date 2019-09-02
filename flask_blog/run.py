@@ -1,6 +1,6 @@
 # PowersHell >> $env:FLASK_APP = "flaskblog.py"
 #            >> $env:FLASK_ENV = "development"
-# YouTube link: https://www.youtube.com/watch?v=803Ei2Sq-Zs
+# YouTube link: https://www.youtube.com/watch?v=PSWf2TjTGNY
 
 from flaskblog import app
 
